@@ -1,33 +1,24 @@
 package SetB;
 
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
-class MissingNuminArray {
-
-	public static void findMissing(int arr[], int N) {
-		int i;
-		int temp[] = new int[N + 1];
-		for (i = 0; i <= N; i++) {
-			temp[i] = 0;
-		}
-
-		for (i = 0; i < N; i++) {
-			temp[arr[i] - 1] = 1;
-		}
-
-		int ans = 0;
-		for (i = 0; i <= N; i++) {
-			if (temp[i] == 0)
-				ans = i + 1;
-		}
-		System.out.println(ans);
-	}
-
+public class MissingNuminArray {
 	public static void main(String[] args) {
-		int arr[] = { 1, 3, 7, 5, 6, 2 };
-		int n = arr.length;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the n value: ");
+		int n = sc.nextInt();
+		int inpuArray[] = new int[n];
+		System.out.println("Enter (n-1) numbers: ");
+		for (int i = 0; i <= n - 2; i++) {
+			inpuArray[i] = sc.nextInt();
+		}
 
-		findMissing(arr, n);
+		int sumOfAll = (n * (n + 1)) / 2;
+		int sumOfArray = 0;
+		for (int i = 0; i <= n - 2; i++) {
+			sumOfArray = sumOfArray + inpuArray[i];
+		}
+		int missingNumber = sumOfAll - sumOfArray;
+		System.out.println("Missing number is: " + missingNumber);
 	}
 }
