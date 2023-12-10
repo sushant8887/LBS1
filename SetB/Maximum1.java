@@ -1,21 +1,15 @@
-// Java program for the above approach
 import java.util.*;
-
 class Maximum1 {
 
 static int R = 4 ;
 static int C = 4 ;
 
-// Function that returns index of row
-// with maximum number of 1s.
 static int rowWithMax1s(int mat[][], int R, int C)
 {
-	// Flag to check if there is not even a single 1 in the matrix. 
+	 
 	boolean flag = true;
-	// Initialize max values
+	
 	int max_row_index = 0, max_ones = 0;;
-
-	// Traverse for each row and count number of 1s
 	for(int i = 0 ; i < R ; i++){
 
 			int count1 = 0 ;
@@ -31,16 +25,13 @@ static int rowWithMax1s(int mat[][], int R, int C)
 			}
 
 		}
-	// Edge case where there are no 1 in the matrix
-	if(flag){
+		if(flag){
 			return -1;
 		}
-
 	return max_row_index;
 }
 
-	// Driver Code
-	public static void main(String[] args) {
+		public static void main(String[] args) {
 		
 	int mat[][] = { {0, 0, 0, 1},
 					{0, 1, 1, 1},
